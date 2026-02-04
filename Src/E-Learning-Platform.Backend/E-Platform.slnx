@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Docs/" />
+  <Project Path="../../../../../../../../source/repos/E-Platform/E-Learning-Core/E-Learning-Core.csproj" Id="07e9d583-29f6-42a2-b564-6cb79913cf5f" />
+  <Project Path="../../../../../../../../source/repos/E-Platform/E-Learning-Platform/E-Learning-Platform.csproj" />
+  <Project Path="../../../../../../../../source/repos/E-Platform/E-Learning-Repository/E-Learning-Repository.csproj" Id="2ba14997-f191-4d68-b7c5-51f1a31fd97c" />
+  <Project Path="../../../../../../../../source/repos/E-Platform/E-Learning-Service/E-Learning-Service.csproj" Id="a3f832ba-1f7d-4a79-8e37-3236fe35250d" />
+</Solution>
