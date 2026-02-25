@@ -1,3 +1,5 @@
+using E_Learning_Platform.Infrastracture.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Learning_Platform
 {
@@ -12,6 +14,14 @@ namespace E_Learning_Platform
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            builder.Services.AddDbContext<PlatformDbContext>(
+                opt => opt.UseSqlServer(
+                    builder.Configuration.GetConnectionString(
+                        "DefaultConnection"
+                        )
+                    )
+                );
 
             var app = builder.Build();
 
