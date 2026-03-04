@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Users;
+using E_Learning_Platform.Core.Entities.Users;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -9,7 +9,6 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
         public void Configure(EntityTypeBuilder<Parent> builder)
         {
             // table mapping via attributes
-            builder.HasKey(x => x.Id);
 
             // nothing additional for now
         }

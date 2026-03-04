@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Academic;
+using E_Learning_Platform.Core.Entities.Academic;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -11,7 +11,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             // table mapping via attributes
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(100);
-
+            builder.HasIndex(x => new {x.AcademicYearId,x.Name}).IsUnique();
             builder.HasOne(x => x.AcademicYear)
                 .WithMany(y => y.Semesters)
                 .HasForeignKey(x => x.AcademicYearId)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication1.Models.Operations;
+using E_Learning_Platform.Core.Entities.Operations;
 
-namespace WebApplication1.Models.Users
+namespace E_Learning_Platform.Core.Entities.Users
 {
     [Table("Parents", Schema = "Users")]
     public class Parent : ApplicationUser

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Courseware;
+using E_Learning_Platform.Core.Entities.Courseware;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -12,7 +12,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Location).HasMaxLength(500);
-
+            builder.HasIndex(x => x.TeacherSubjectId);
             builder.HasOne(x => x.TeacherSubject)
                 .WithMany(ts => ts.Lessons)
                 .HasForeignKey(x => x.TeacherSubjectId)

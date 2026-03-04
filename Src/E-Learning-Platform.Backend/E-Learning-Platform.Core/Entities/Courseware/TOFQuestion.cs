@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models.Courseware
+﻿namespace E_Learning_Platform.Core.Entities.Courseware
 {
     // TOF inherits from MCQuestion to reuse Options collection.
     public class TOFQuestion : MCQuestion

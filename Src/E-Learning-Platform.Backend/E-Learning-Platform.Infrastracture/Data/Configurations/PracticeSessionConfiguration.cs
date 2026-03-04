@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Examination;
+using E_Learning_Platform.Core.Entities.Examination;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -12,6 +12,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.StartedAt).IsRequired();
+            builder.Property(x => x.Score).HasPrecision(18, 2);
 
             builder.HasOne(x => x.Student)
                 .WithMany(s => s.PracticeSessions)

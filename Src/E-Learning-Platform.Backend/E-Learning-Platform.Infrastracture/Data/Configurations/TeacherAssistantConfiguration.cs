@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Users;
+using E_Learning_Platform.Core.Entities.Users;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -19,7 +19,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.Assistant)
                 .WithMany(a => a.AssignedTeachers)
                 .HasForeignKey(x => x.AssistantId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.JoinedAt).IsRequired();
         }

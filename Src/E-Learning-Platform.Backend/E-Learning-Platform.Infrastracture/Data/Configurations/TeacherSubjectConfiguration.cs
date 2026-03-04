@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Academic;
+using E_Learning_Platform.Core.Entities.Academic;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {

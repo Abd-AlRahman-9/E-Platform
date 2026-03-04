@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Operations;
+using E_Learning_Platform.Core.Entities.Operations;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -10,6 +10,11 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
         {
             // table mapping via attributes
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Status).HasConversion<string>();
+            builder.Property(x => x.Interactions).HasConversion<int>();
+
+            builder.HasIndex(x => new { x.StudentId, x.ContentItemId });
 
             builder.HasOne(x => x.ContentItem)
                 .WithMany(c => c.StudentProgresses)

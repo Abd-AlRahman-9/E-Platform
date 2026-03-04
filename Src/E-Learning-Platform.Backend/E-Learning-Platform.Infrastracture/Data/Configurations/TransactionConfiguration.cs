@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Operations;
+using E_Learning_Platform.Core.Entities.Operations;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -13,7 +13,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
 
             builder.Property(x => x.Amount).HasPrecision(18, 2);
             builder.Property(x => x.TransactionDate).IsRequired();
-            builder.Property(x => x.PaymentMethod).HasMaxLength(100);
+            builder.Property(x => x.PaymentMethod).HasConversion<string>();
 
             builder.HasOne(x => x.Payer)
                 .WithMany()
@@ -22,7 +22,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
 
             builder.HasOne(x => x.StudentEnrollment)
                 .WithMany(se => se.Transactions)
-                .HasForeignKey(x => x.StudentEnrollmentId)
+                .HasForeignKey(x => new {x.StudentId, x.TeacherSubjectId})
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

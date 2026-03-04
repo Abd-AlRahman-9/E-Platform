@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApplication1.Models.Courseware
+namespace E_Learning_Platform.Core.Entities.Courseware
 {
     // MCQuestion is a specialized Question that can have options.
     public class MCQuestion : Question
