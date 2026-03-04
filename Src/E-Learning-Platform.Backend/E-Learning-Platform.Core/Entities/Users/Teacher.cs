@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication1.Models.Academic;
+using E_Learning_Platform.Core.Entities.Academic;
 
-namespace WebApplication1.Models.Users
+namespace E_Learning_Platform.Core.Entities.Users
 {
     [Table("Teachers", Schema = "Users")]
     public class Teacher : ApplicationUser

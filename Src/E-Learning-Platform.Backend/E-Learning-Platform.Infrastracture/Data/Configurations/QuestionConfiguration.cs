@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Courseware;
+using E_Learning_Platform.Core.Entities.Courseware;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -10,7 +10,9 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
         {
             // table mapping via attributes
             builder.HasKey(x => x.Id);
-
+            builder.Property(x => x.QuestionType).HasConversion<string>();
+            builder.Property(x => x.ApprovalStatus).HasConversion<string>();
+            builder.Property(x => x.DifficultyLevel).HasConversion<string>();
             builder.Property(x => x.QuestionHeader).IsRequired().HasMaxLength(2000);
             builder.Property(x => x.RightAnswer).HasMaxLength(2000);
 
@@ -20,9 +22,10 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             // TPH discriminator
-            builder.HasDiscriminator<int>("QuestionType")
-                .HasValue<Question>((int)QuestionType.TOF - 0) // default value ; specific derived types can be configured if needed
-                ;
+            builder.HasDiscriminator<QuestionType>(q=>q.QuestionType)
+                .HasValue<Question>(QuestionType.Essay)
+                .HasValue<TOFQuestion>(QuestionType.TOF) // default value ; specific derived types can be configured if needed
+                .HasValue<MCQuestion>(QuestionType.MCQ);
         }
     }
 }

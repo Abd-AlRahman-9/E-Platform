@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Models.Courseware
+namespace E_Learning_Platform.Core.Entities.Courseware
 {
     [Table("QuestionOptions", Schema = "Courseware")]
     public class QuestionOption : BaseEntity<int>
@@ -11,5 +11,6 @@ namespace WebApplication1.Models.Courseware
         public MCQuestion MCQuestion { get; set; }
 
         public string OptionText { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

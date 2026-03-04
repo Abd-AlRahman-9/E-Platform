@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication1.Models.Operations;
+using E_Learning_Platform.Core.Entities.Operations;
 
-namespace WebApplication1.Models.Courseware
+namespace E_Learning_Platform.Core.Entities.Courseware
 {
     public enum ContentType
     {
@@ -29,10 +29,13 @@ namespace WebApplication1.Models.Courseware
         public string Description { get; set; }
         public ContentType Type { get; set; }
         public string Url { get; set; }
-
+        public int Order {  get; set; }
+        public bool IsRequired { get; set; }
+        public int EstimatedDurationInMinutes { get; set; }
         public virtual ICollection<StudentProgress> StudentProgresses { get; set; }
-
         public int LessonId { get; set; }
         public Lesson Lesson { get; set; }
+        public DateTime? AvailableUntil { get; set; }
+
     }
 }

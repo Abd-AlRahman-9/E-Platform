@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Models.Users
+namespace E_Learning_Platform.Core.Entities.Users
 {
     [Table("TeachingAssistants", Schema = "Users")]
     public class TeachingAssistant : ApplicationUser

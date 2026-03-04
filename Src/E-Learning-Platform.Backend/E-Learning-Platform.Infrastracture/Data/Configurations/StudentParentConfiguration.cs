@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models.Users;
+using E_Learning_Platform.Core.Entities.Users;
 
 namespace E_Learning_Platform.Infrastracture.Data.Configurations
 {
@@ -10,7 +10,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
         {
             // table mapping via attributes
             builder.HasKey(x => new { x.StudentId, x.ParentId });
-
+            builder.Property(x => x.Relationship).HasConversion<string>();
             builder.HasOne(x => x.Student)
                 .WithMany(s => s.Parents)
                 .HasForeignKey(x => x.StudentId)

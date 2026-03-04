@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication1.Models.Courseware;
+using E_Learning_Platform.Core.Entities.Courseware;
 
-namespace WebApplication1.Models.Examination
+namespace E_Learning_Platform.Core.Entities.Examination
 {
     [Table("PracticeSessionLessons", Schema = "Examination")]
     public class PracticeSessionLesson : BaseAuditEntity
@@ -11,7 +11,7 @@ namespace WebApplication1.Models.Examination
 
         public int LessonId { get; set; }
         public Lesson Lesson { get; set; }
-
+        public decimal Score { get; set; }
         public int QuestionsAttempted { get; set; }
     }
 }

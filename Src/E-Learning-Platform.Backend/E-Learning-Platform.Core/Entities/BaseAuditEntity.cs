@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace E_Learning_Platform.Core.Entities
 {
     public class BaseAuditEntity
     {

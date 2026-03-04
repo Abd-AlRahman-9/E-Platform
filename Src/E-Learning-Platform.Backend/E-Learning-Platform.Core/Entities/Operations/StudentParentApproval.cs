@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication1.Models.Academic;
-using WebApplication1.Models.Users;
+using E_Learning_Platform.Core.Entities.Academic;
+using E_Learning_Platform.Core.Entities.Users;
 
-namespace WebApplication1.Models.Operations
+namespace E_Learning_Platform.Core.Entities.Operations
 {
     [Table("StudentParentApprovals", Schema = "Operations")]
     public class StudentParentApproval : BaseAuditEntity
