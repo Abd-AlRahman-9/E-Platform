@@ -20,7 +20,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.OfficialExam)
                 .WithMany(e => e.ExamQuestions)
                 .HasForeignKey(x => x.OfficialExamId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasIndex(x => x.QuestionId);
             builder.HasIndex(x => x.OfficialExamId);

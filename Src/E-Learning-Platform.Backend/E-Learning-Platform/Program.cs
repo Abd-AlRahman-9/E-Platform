@@ -1,3 +1,4 @@
+using E_Learning_Platform.Extensions;
 using E_Learning_Platform.Infrastracture.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,7 +6,7 @@ namespace E_Learning_Platform
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ namespace E_Learning_Platform
                 );
 
             var app = builder.Build();
+
+            await app.MigrateAsync();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

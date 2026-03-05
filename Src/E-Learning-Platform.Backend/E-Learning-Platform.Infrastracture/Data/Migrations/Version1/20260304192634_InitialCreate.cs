@@ -272,7 +272,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         principalSchema: "Users",
                         principalTable: "Parents",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_StudentParents_Students_StudentId",
                         column: x => x.StudentId,
@@ -537,22 +537,19 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         column: x => x.ParentId,
                         principalSchema: "Users",
                         principalTable: "Parents",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StudentParentApprovals_Students_StudentId",
                         column: x => x.StudentId,
                         principalSchema: "Users",
                         principalTable: "Students",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StudentParentApprovals_TeacherSubjects_TeacherSubjectId",
                         column: x => x.TeacherSubjectId,
                         principalSchema: "Academic",
                         principalTable: "TeacherSubjects",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1002,22 +999,19 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         column: x => x.RecordedByUserId,
                         principalSchema: "Users",
                         principalTable: "ApplicationUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StudentAttendances_Sessions_SessionId",
                         column: x => x.SessionId,
                         principalSchema: "Academic",
                         principalTable: "Sessions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StudentAttendances_Students_StudentId",
                         column: x => x.StudentId,
                         principalSchema: "Users",
                         principalTable: "Students",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1159,8 +1153,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         column: x => x.OfficialExamId,
                         principalSchema: "Examination",
                         principalTable: "OfficialExams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ExamQuestions_Questions_QuestionId",
                         column: x => x.QuestionId,
@@ -1194,15 +1187,13 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         column: x => x.OfficialExamId,
                         principalSchema: "Examination",
                         principalTable: "OfficialExams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ExamStudentAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalSchema: "Courseware",
                         principalTable: "Questions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ExamStudentAnswers_Students_StudentId",
                         column: x => x.StudentId,
@@ -1236,15 +1227,13 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                         column: x => x.PracticeSessionId,
                         principalSchema: "Examination",
                         principalTable: "PracticeSessions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PracticeSessionStudentAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalSchema: "Courseware",
                         principalTable: "Questions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PracticeSessionStudentAnswers_Students_StudentId",
                         column: x => x.StudentId,

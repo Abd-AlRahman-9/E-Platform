@@ -14,17 +14,17 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.Student)
                 .WithMany(s => s.ParentApprovals)
                 .HasForeignKey(x => x.StudentId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Parent)
                 .WithMany(p => p.ChildApprovals)
                 .HasForeignKey(x => x.ParentId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.TeacherSubject)
                 .WithMany(ts => ts.ParentApprovals)
                 .HasForeignKey(x => x.TeacherSubjectId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

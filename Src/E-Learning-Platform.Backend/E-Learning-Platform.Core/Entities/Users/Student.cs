@@ -21,6 +21,7 @@ namespace E_Learning_Platform.Core.Entities.Users
             StudentExamAnswers = new HashSet<ExamStudentAnswer>();
             StudentPracticeSessionAnswers = new HashSet<PracticeSessionStudentAnswer>();
             InvitationCodes = new HashSet<StudentInvitationCode>();
+            StudentAttendances = new HashSet<StudentAttendance>();
         }
 
         public DateTime DateOfBirth { get; set; }
@@ -35,7 +36,7 @@ namespace E_Learning_Platform.Core.Entities.Users
         public virtual ICollection<ExamStudentAnswer> StudentExamAnswers { get; set; }
         public virtual ICollection<StudentInvitationCode> InvitationCodes { get; set; }
         public virtual ICollection<PracticeSessionStudentAnswer> StudentPracticeSessionAnswers { get; set; }
-
+        public virtual ICollection<StudentAttendance> StudentAttendances { get; set; }
         // per-TeacherSubject approvals for this student
         public virtual ICollection<StudentParentApproval> ParentApprovals { get; set; }
     }
