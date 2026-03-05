@@ -21,13 +21,13 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.Question)
                 .WithMany(q => q.ExamStudentAnswers)
                 .HasForeignKey(x => x.QuestionId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             // table mapping via attributes
             builder.HasOne(x => x.OfficialExam)
                 .WithMany(o => o.StudentAnswers)
                 .HasForeignKey(x => x.OfficialExamId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

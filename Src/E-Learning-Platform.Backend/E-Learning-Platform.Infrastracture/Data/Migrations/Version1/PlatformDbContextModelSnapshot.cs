@@ -1887,7 +1887,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Examination.OfficialExam", "OfficialExam")
                         .WithMany("ExamQuestions")
                         .HasForeignKey("OfficialExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Courseware.Question", "Question")
@@ -1906,13 +1906,13 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Examination.OfficialExam", "OfficialExam")
                         .WithMany("StudentAnswers")
                         .HasForeignKey("OfficialExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Courseware.Question", "Question")
                         .WithMany("ExamStudentAnswers")
                         .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Student", "Student")
@@ -2012,13 +2012,13 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Examination.PracticeSession", "PracticeSession")
                         .WithMany("StudentAnswers")
                         .HasForeignKey("PracticeSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Courseware.Question", "Question")
                         .WithMany("PracticeSessionStudentAnswers")
                         .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Student", "Student")
@@ -2050,19 +2050,19 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.ApplicationUser", "RecordedByUser")
                         .WithMany()
                         .HasForeignKey("RecordedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Academic.Session", "Session")
                         .WithMany("StudentAttendances")
                         .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Student", "Student")
-                        .WithMany()
+                        .WithMany("StudentAttendances")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("RecordedByUser");
@@ -2131,19 +2131,19 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Parent", "Parent")
                         .WithMany("ChildApprovals")
                         .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Student", "Student")
                         .WithMany("ParentApprovals")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Academic.TeacherSubject", "TeacherSubject")
                         .WithMany("ParentApprovals")
                         .HasForeignKey("TeacherSubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("ApprovedByUser");
@@ -2198,7 +2198,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Parent", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("E_Learning_Platform.Core.Entities.Users.Student", "Student")
@@ -2410,6 +2410,8 @@ namespace E_Learning_Platform.Infrastracture.Data.Migrations.Version1
                     b.Navigation("PracticeSessions");
 
                     b.Navigation("ProgressRecords");
+
+                    b.Navigation("StudentAttendances");
 
                     b.Navigation("StudentClassGroups");
 

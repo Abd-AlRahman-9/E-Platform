@@ -24,12 +24,12 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.Question)
                 .WithMany(q => q.PracticeSessionStudentAnswers)
                 .HasForeignKey(x => x.QuestionId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.PracticeSession)
                 .WithMany(p => p.StudentAnswers)
                 .HasForeignKey(x => x.PracticeSessionId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

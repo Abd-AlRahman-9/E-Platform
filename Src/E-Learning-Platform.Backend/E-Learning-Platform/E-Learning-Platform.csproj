@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="E-Learning-Platform.Infrastracture\**" />
+    <Content Remove="E-Learning-Platform.Infrastracture\**" />
+    <EmbeddedResource Remove="E-Learning-Platform.Infrastracture\**" />
+    <None Remove="E-Learning-Platform.Infrastracture\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.3" />
@@ -20,10 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\E-Learning-Platform.Infrastracture\E-Learning-Platform.Infrastracture.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="E-Learning-Platform.Infrastracture\Data\Configurations\" />
   </ItemGroup>
 
 </Project>

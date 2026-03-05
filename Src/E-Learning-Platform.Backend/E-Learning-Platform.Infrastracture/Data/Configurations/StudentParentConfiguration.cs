@@ -11,6 +11,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             // table mapping via attributes
             builder.HasKey(x => new { x.StudentId, x.ParentId });
             builder.Property(x => x.Relationship).HasConversion<string>();
+
             builder.HasOne(x => x.Student)
                 .WithMany(s => s.Parents)
                 .HasForeignKey(x => x.StudentId)
@@ -19,7 +20,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Configurations
             builder.HasOne(x => x.Parent)
                 .WithMany(p => p.Children)
                 .HasForeignKey(x => x.ParentId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
