@@ -1,10 +1,12 @@
 ﻿using E_Learning_Platform.Core.Entities.Courseware;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace E_Learning_Platform.Core.Entities.Examination
 {
+    [Table("OfficialExamLessons", Schema = "Examination")]
     public class OfficialExamLesson : BaseAuditEntity
     {
         public int OfficialExamId { get; set; }

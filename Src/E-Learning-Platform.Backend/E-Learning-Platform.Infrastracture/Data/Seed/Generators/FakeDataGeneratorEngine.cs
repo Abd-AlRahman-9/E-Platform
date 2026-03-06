@@ -1,11 +1,10 @@
-﻿using Bogus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+
 namespace E_Learning_Platform.Infrastracture.Data.Seed.Generators
 {
-    public interface IFakerProfile<T> where T : class   
+    internal class FakeDataGeneratorEngine
     {
-        Faker<T> Build();
     }
 }
