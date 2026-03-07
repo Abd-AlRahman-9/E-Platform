@@ -23,7 +23,7 @@ namespace E_Learning_Platform.Infrastracture.Data
         public DbSet<TeacherAssistant> TeacherAssistants { get; set; }
 
         // Academic
-        public DbSet<AcademicYear> AcademicYears { get; set; }
+        public DbSet<Track> AcademicYears { get; set; }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<Subject> Subjects { get; set; }

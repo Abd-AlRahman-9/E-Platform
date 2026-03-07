@@ -14,6 +14,7 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed.Writers
             {
                 WriteIndented = true,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                Converters = { new JsonStringEnumConverter() },
             });
 
             File.WriteAllText(path, json);

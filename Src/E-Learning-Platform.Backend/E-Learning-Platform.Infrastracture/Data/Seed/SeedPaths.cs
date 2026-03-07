@@ -33,5 +33,14 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed
         public static string AcademicYear =>
             Path.Combine(BasePath, "AcademicYears.json");
 
+        public static string Conversations =>
+            Path.Combine(BasePath, "Conversations.json");
+
+        public static string ConverstionParticipants =>
+            Path.Combine(BasePath, "ConverstionParticipants.json");
+
+        public static string Messages =>
+            Path.Combine(BasePath, "Messages.json");
+
     }
 }
