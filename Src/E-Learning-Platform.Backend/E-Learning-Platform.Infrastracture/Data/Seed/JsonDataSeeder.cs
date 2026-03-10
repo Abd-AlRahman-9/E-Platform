@@ -64,9 +64,32 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed
 
             // Communication Schema Json Files
 
+            FakeDataGeneratorEngine.Generate
+                (
+                    new ConversationFakerProfile(),
+                    20,
+                    SeedPaths.Conversations
+                );
+            FakeDataGeneratorEngine.Generate
+                (
+                    new ConversationParticipantFakerProfile(),
+                    20,
+                    SeedPaths.ConverstionParticipants
+                );
+            FakeDataGeneratorEngine.Generate
+                (
+                    new MessageFakerProfile(),
+                    20,
+                    SeedPaths.Messages
+                );
+
             // Courseware Schema Json Files
 
+              
+
             // Examination Schema Json Files
+
+
 
             // Operation Schema Json Files
 

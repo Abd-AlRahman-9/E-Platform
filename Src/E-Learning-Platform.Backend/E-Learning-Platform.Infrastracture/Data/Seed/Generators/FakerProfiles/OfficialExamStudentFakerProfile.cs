@@ -11,7 +11,12 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed.Generators.FakerProfiles
     {
         public Faker<OfficialExamStudent> Build()
         {
-            throw new NotImplementedException();
+            return new Faker<OfficialExamStudent>()
+                .RuleFor(x => x.StudentId, f => f.Random.Int(1, 1000))
+                .RuleFor(x => x.OfficialExamId, f => f.Random.Int(1, 200))
+                .RuleFor(x => x.CreatedOn, f => f.Date.Past())
+                .RuleFor(x => x.UpdatedOn, (f, x) => f.Random.Bool(0.4f) ? f.Date.Between(x.CreatedOn, DateTime.UtcNow) : null)
+                .RuleFor(x => x.IsDeleted, f => false);
         }
     }
 }

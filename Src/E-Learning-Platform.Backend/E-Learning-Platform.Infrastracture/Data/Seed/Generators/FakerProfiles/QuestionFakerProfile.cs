@@ -20,18 +20,12 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed.Generators.FakerProfiles
                     f => f.PickRandom<DifficultyLevel>())
                 .RuleFor(x => x.QuestionType,
                     f => QuestionType.Essay)
-                .RuleFor(x => x.QuestionHeader,
-                    f => f.Lorem.Sentence())
-                .RuleFor(x => x.RightAnswer,
-                    f => f.Lorem.Word())
-                .RuleFor(x => x.LessonId,
-                    f => f.Random.Int(1, 50))
-                .RuleFor(x => x.ApprovedAt,
-                    f => f.Date.Past())
-                .RuleFor(x => x.RejectionReason,
-                    f => f.Lorem.Sentence())
-                .RuleFor(x => x.CreatedOn,
-                    f => f.Date.Past());
+                .RuleFor(x => x.QuestionHeader, f => f.Lorem.Sentence())
+                .RuleFor(x => x.RightAnswer, f => f.Lorem.Word())
+                .RuleFor(x => x.LessonId, f => f.Random.Int(1, 50))
+                .RuleFor(x => x.ApprovedAt, f => f.Date.Past())
+                .RuleFor(x => x.RejectionReason, f => f.Lorem.Sentence())
+                .RuleFor(x => x.CreatedOn, f => f.Date.Past());
         }
     }
 }

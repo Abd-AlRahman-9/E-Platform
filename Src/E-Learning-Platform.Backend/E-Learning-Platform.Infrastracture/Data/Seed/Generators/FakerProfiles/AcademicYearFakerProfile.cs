@@ -11,22 +11,37 @@ namespace E_Learning_Platform.Infrastracture.Data.Seed.Generators.FakerProfiles
         public Faker<AcademicYear> Build()
         {
             return new Faker<AcademicYear>()
+
+                // Academic Data
                 .RuleFor(a => a.Name, f =>
                 {
-                    var startYear = f.Date.Past(5).Year;
-                    var endYear = startYear + 1;
-                    return $"{startYear}-{endYear}";
+                    var startYear = f.Random.Int(2020, 2026);
+                    return $"{startYear}-{startYear + 1}";
                 })
-                .RuleFor(a => a.StartDate, f =>
+
+                .RuleFor(a => a.StartDate, (f, a) =>
                 {
-                    var year = f.Date.Past(5).Year;
-                    return new DateTime(year, 9, 1);
+                    var startYear = int.Parse(a.Name.Split('-')[0]);
+                    return new DateTime(startYear, 9, 1);
                 })
+
                 .RuleFor(a => a.EndDate, (f, a) =>
-                {
-                    return a.StartDate.AddMonths(10);
-                })
-                .RuleFor(a => a.IsActive, f => f.Random.Bool(0.3f));
+                    a.StartDate.AddMonths(10))
+
+                .RuleFor(a => a.IsActive, f => f.Random.Bool(0.3f))
+
+                // BaseEntity Fields
+                .RuleFor(a => a.CreatedOn,
+                    f => f.Date.Past(2))
+
+                .RuleFor(a => a.UpdatedOn,
+                    (f, a) => f.Random.Bool(0.5f) ? f.Date.Between(a.CreatedOn, DateTime.UtcNow) : null)
+
+                .RuleFor(a => a.IsDeleted,
+                    f => false)
+
+                // Ignore Navigation Property
+                .Ignore(a => a.Semesters);
         }
     }
 }
